@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 
-// const previewBoxStyle = `{
-//   width: '300px',
-//   height: ${(this.state.term2 * 300) / this.state.term1}
-// }`;
-
 class App extends Component {
-  state = {};
+  state = {
+    term1: 3,
+    term2: 2,
+    width: 960
+  };
 
   handleChange = event => {
     const { value, name } = event.target;
@@ -20,27 +19,36 @@ class App extends Component {
   };
 
   findValue = () => {
-    if (this.state.term1 && this.state.term2 && this.state.width) {
-      const height = (this.state.term2 * this.state.width) / this.state.term1;
-      this.setState({
-        height: height
-      });
-    }
+    const height = (this.state.term2 * this.state.width) / this.state.term1;
+    this.setState({
+      height: height
+    });
   };
 
+  componentDidMount() {
+    this.findValue();
+  }
   render() {
     return (
       <div className="App">
         <header>
           <h1>Ratio</h1>
         </header>
-        <section className="preview">
-          <div className="preview-box">
-            <p>
-              {this.state.width} × {this.state.height}
-            </p>
-          </div>
-        </section>
+        {this.state.height && (
+          <section className="preview">
+            <div
+              className="preview-box"
+              style={{
+                width: '300px',
+                height: (this.state.term2 * 300) / this.state.term1
+              }}
+            >
+              <p>
+                {this.state.width} × {this.state.height}
+              </p>
+            </div>
+          </section>
+        )}
         <section className="controls">
           <div className="terms">
             <input
