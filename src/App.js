@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 
+// const previewBoxStyle = `{
+//   width: '300px',
+//   height: ${(this.state.term2 * 300) / this.state.term1}
+// }`;
+
 class App extends Component {
-  state = {
-    term1: '',
-    term2: '',
-    width: '',
-    height: ''
-  };
+  state = {};
 
   handleChange = event => {
     const { value, name } = event.target;
@@ -34,33 +34,38 @@ class App extends Component {
         <header>
           <h1>Ratio</h1>
         </header>
-        <section className="preview" />
+        <section className="preview">
+          <div className="preview-box">
+            <p>
+              {this.state.width} × {this.state.height}
+            </p>
+          </div>
+        </section>
         <section className="controls">
           <div className="terms">
-            <label>Ratio A</label>
             <input
               name="term1"
               type="number"
               value={this.state.term1}
               onChange={this.handleChange}
             />
-            <label>Ratio B</label>
+            {' : '}
             <input
               name="term2"
               type="number"
               value={this.state.term2}
               onChange={this.handleChange}
             />
+            <div>=</div>
           </div>
           <div className="values">
-            <label>Width</label>
             <input
               name="width"
               type="number"
               value={this.state.width}
               onChange={this.handleChange}
             />
-            <label>Height</label>
+            {' : '}
             <input
               name="height"
               type="number"
