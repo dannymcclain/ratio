@@ -9,9 +9,9 @@
 }
 
 :root {
-  /* --main-color: #ffc94f; */
-  --main-color: #4cff88;
-  --main-gradient: linear-gradient(-45deg, #fd918f 0%, var(--main-color) 100%);
+  /* --main-color: #4cff88; */
+  --main-color: #40e97e;
+  --main-gradient: linear-gradient(-45deg, #4cff88 0%, #36d376 100%);
 }
 
 .App {
