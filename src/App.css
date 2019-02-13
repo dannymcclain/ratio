@@ -49,6 +49,7 @@ h1 {
   padding: 0 40px;
 }
 .controls input {
+  width: 45%;
   height: 48px;
   border-radius: 6px;
   font-weight: 600;
@@ -76,7 +77,20 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .terms {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 30px;
+}
+
+.values {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .colon {

@@ -31,6 +31,7 @@ class App extends Component {
     this.findValue();
   }
   render() {
+    const previewHeight = (this.state.term2 * 40) / this.state.term1;
     return (
       <div className="App">
         <main>
@@ -45,7 +46,7 @@ class App extends Component {
                   onChange={this.handleChange}
                   min="1"
                 />
-                <span class="colon">:</span>
+                <span className="colon">:</span>
                 <input
                   name="term2"
                   type="number"
@@ -62,7 +63,7 @@ class App extends Component {
                   onChange={this.handleChange}
                   min="1"
                 />
-                <span class="colon">:</span>
+                <span className="colon">:</span>
                 <input
                   name="height"
                   type="number"
@@ -76,13 +77,13 @@ class App extends Component {
             <div
               className="preview-box"
               style={{
-                width: '360px',
-                height: (this.state.term2 * 360) / this.state.term1
+                width: '40vw',
+                height: `${previewHeight}vw`
               }}
             >
               <p>
                 {this.state.width}
-                <span class="times"> × </span>
+                <span className="times"> × </span>
                 {this.state.height}
               </p>
             </div>
