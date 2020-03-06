@@ -5,11 +5,6 @@
   let resultB = 900;
   let roundResult = false;
   function calculateResult() {
-    // if (roundResult) {
-    //   resultB = Math.round((resultA * ratioB) / ratioA);
-    // } else {
-    //   resultB = (resultA * ratioB) / ratioA;
-    // }
     resultB = roundResult
       ? Math.round((resultA * ratioB) / ratioA)
       : (resultA * ratioB) / ratioA;
