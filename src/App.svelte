@@ -3,15 +3,23 @@
   let ratioB = 3;
   let resultA = 1200;
   let resultB = 900;
+  let focusResultA = false;
   let roundResult = false;
 
   let infoOpen = false;
 
-  function calculateResult() {
+  function calculateB() {
+    focusResultA = false;
     resultB = roundResult
       ? Math.round((resultA * ratioB) / ratioA)
       : (resultA * ratioB) / ratioA;
-    console.log(ratioA, ratioB, resultA, resultB);
+  }
+
+  function calculateA() {
+    focusResultA = true;
+    resultA = roundResult
+      ? Math.round((ratioA * resultB) / ratioB)
+      : (ratioA * resultB) / ratioB;
   }
 
   function toggleInfo() {
@@ -36,8 +44,7 @@
     font-weight: bold;
     letter-spacing: -0.03em;
   }
-  .form__input--number,
-  .form__input--number--disabled {
+  .form__input--number {
     font-weight: 800;
     font-size: 81px;
     line-height: 81px;
@@ -53,13 +60,7 @@
   .form__input--number:focus {
     border-bottom: 2px solid rgba(0, 0, 0, 1);
   }
-  .form__input--number--disabled,
-  input[type="number"]:disabled {
-    color: #000;
-    cursor: not-allowed;
-    opacity: 1;
-    -webkit-text-fill-color: #000;
-  }
+
   input[type="number"]::placeholder {
     color: #000;
     font-size: 45px;
@@ -109,14 +110,14 @@
       size="1"
       type="number"
       bind:value={ratioA}
-      on:input={calculateResult} />
+      on:input={focusResultA ? calculateA() : calculateB()} />
     <input
       placeholder=""
       class="form__input--number"
       size="1"
       type="number"
       bind:value={ratioB}
-      on:input={calculateResult} />
+      on:input={focusResultA ? calculateA() : calculateB()} />
     <p class="form__label">Result</p>
     <input
       placeholder=""
@@ -124,21 +125,21 @@
       size="1"
       type="number"
       bind:value={resultA}
-      on:input={calculateResult} />
+      on:input={calculateB} />
     <input
       placeholder=""
-      class="form__input--number--disabled"
+      class="form__input--number"
       size="1"
       type="number"
       bind:value={resultB}
-      disabled />
+      on:input={calculateA} />
 
     <label>
       <input
         class="form__input--checkbox"
         type="checkbox"
         bind:checked={roundResult}
-        on:change={calculateResult} />
+        on:change={focusResultA ? calculateA() : calculateB()} />
       Round to nearest whole number
     </label>
     <p class="toggle" on:click={toggleInfo}></p>
