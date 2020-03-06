@@ -85,7 +85,7 @@
     color: #fff;
     padding: 63px;
     transform: translateY(50vh);
-    transition: transform 400ms cubic-bezier(0.075, 0.82, 0.165, 1),
+    transition: transform 300ms cubic-bezier(0.075, 0.82, 0.165, 1),
       opacity 200ms linear;
   }
   .info--open {
