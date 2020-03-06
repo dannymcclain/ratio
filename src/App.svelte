@@ -20,9 +20,15 @@
 </script>
 
 <style>
+  main {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    padding: 63px;
+  }
   .form {
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
   }
   .form__label {
     font-size: 27px;
@@ -68,21 +74,33 @@
     margin: 0;
   }
   .info {
+    position: absolute;
+    top: 0;
+    left: 0;
     pointer-events: none;
     opacity: 0;
     width: 100vw;
-    height: 20vh;
+    height: 100vh;
     background: #000;
     color: #fff;
+    padding: 63px;
+    transform: translateY(50vh);
+    transition: transform 400ms cubic-bezier(0.075, 0.82, 0.165, 1),
+      opacity 200ms linear;
   }
   .info--open {
     opacity: 1;
     pointer-events: auto;
+    transform: translateY(0);
+  }
+  .toggle {
+    padding: 18px;
+    font-weight: 800;
+    cursor: pointer;
   }
 </style>
 
 <main>
-  <p on:click={toggleInfo}></p>
   <section class="form">
     <p class="form__label">Ratio</p>
     <input
@@ -123,8 +141,10 @@
         on:change={calculateResult} />
       Round to nearest whole number
     </label>
+    <p class="toggle" on:click={toggleInfo}></p>
   </section>
   <section class="info {infoOpen ? 'info--open' : ''}">
+    <p class="toggle" on:click={toggleInfo}></p>
     <h1>Ratio calculator.</h1>
     <p>A simple aspect ratio/proportion calculator.</p>
     <p>
