@@ -55,7 +55,9 @@
     background: transparent;
     outline: none;
     border: none;
+    border-radius: 0;
     border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    transition: border 300ms linear;
   }
   .form__input--number:focus {
     border-bottom: 2px solid rgba(0, 0, 0, 1);
