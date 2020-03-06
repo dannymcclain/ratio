@@ -43,6 +43,15 @@
     line-height: 30px;
     font-weight: bold;
     letter-spacing: -0.03em;
+    margin-bottom: 18px;
+  }
+  .form__divider {
+    font-weight: 800;
+    font-size: 81px;
+    line-height: 81px;
+    letter-spacing: -0.06em;
+    display: inline;
+    margin: 0 36px;
   }
   .form__input--number {
     font-weight: 800;
@@ -76,6 +85,49 @@
     -webkit-appearance: none;
     margin: 0;
   }
+
+  .form__input--checkbox {
+    display: flex;
+    cursor: pointer;
+    position: relative;
+  }
+  .form__input--checkbox > span {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: -0.03em;
+  }
+  .form__input--checkbox > input {
+    height: 27px;
+    width: 27px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border: 2px solid #000;
+    border-radius: 0;
+    outline: none;
+    transition-duration: 200ms;
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 9px;
+  }
+
+  .form__input--checkbox > input:checked {
+    border: 2px solid #000;
+    background-color: #000;
+  }
+  .form__input--checkbox > input:checked + span::before {
+    font-size: 21px;
+    content: "\2713";
+    display: block;
+    text-align: center;
+    color: #49f265;
+    position: absolute;
+    left: 4px;
+    top: -1px;
+  }
+
   .info {
     position: absolute;
     top: 0;
@@ -97,9 +149,11 @@
     transform: translateY(0);
   }
   .toggle {
-    padding: 18px;
-    font-weight: 800;
+    /* padding: 18px; */
+    font-weight: 400;
+    font-size: 36px;
     cursor: pointer;
+    display: inline-block;
   }
 </style>
 
@@ -113,6 +167,7 @@
       type="number"
       bind:value={ratioA}
       on:input={focusResultA ? calculateA() : calculateB()} />
+    <p class="form__divider">:</p>
     <input
       placeholder=""
       class="form__input--number"
@@ -128,6 +183,7 @@
       type="number"
       bind:value={resultA}
       on:input={calculateB} />
+    <p class="form__divider">:</p>
     <input
       placeholder=""
       class="form__input--number"
@@ -136,13 +192,13 @@
       bind:value={resultB}
       on:input={calculateA} />
 
-    <label>
+    <label class="form__input--checkbox">
       <input
-        class="form__input--checkbox"
+        class="form__input--checkbox__input"
         type="checkbox"
         bind:checked={roundResult}
         on:change={focusResultA ? calculateA() : calculateB()} />
-      Round to nearest whole number
+      <span>Round to nearest whole number</span>
     </label>
     <p class="toggle" on:click={toggleInfo}></p>
   </section>
