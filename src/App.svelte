@@ -11,16 +11,9 @@
     resultB = roundResult
       ? Math.round((resultA * ratioB) / ratioA)
       : (resultA * ratioB) / ratioA;
+    console.log(ratioA, ratioB, resultA, resultB);
   }
-  function calculateOther() {
-    resultA = roundResult
-      ? Math.round((ratioA * resultB) / ratioB)
-      : (ratioA * resultB) / ratioB;
-  }
-  function roundAllResults() {
-    calculateResult();
-    calculateOther();
-  }
+
   function toggleInfo() {
     infoOpen = !infoOpen;
   }
@@ -37,8 +30,8 @@
     font-weight: bold;
     letter-spacing: -0.03em;
   }
-  .input--number,
-  .input--disabled {
+  .form__input--number,
+  .form__input--number--disabled {
     font-weight: 800;
     font-size: 81px;
     line-height: 81px;
@@ -51,13 +44,28 @@
     border: none;
     border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   }
-  .input--number:focus {
+  .form__input--number:focus {
     border-bottom: 2px solid rgba(0, 0, 0, 1);
   }
-  .input--disabled {
+  .form__input--number--disabled,
+  input[type="number"]:disabled {
     color: #000;
     cursor: not-allowed;
     opacity: 1;
+    -webkit-text-fill-color: #000;
+  }
+  input[type="number"]::placeholder {
+    color: #000;
+    font-size: 45px;
+    font-weight: 800;
+    padding-top: 14px;
+    opacity: 0.1;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
   .info {
     pointer-events: none;
@@ -67,7 +75,6 @@
     background: #000;
     color: #fff;
   }
-
   .info--open {
     opacity: 1;
     pointer-events: auto;
@@ -77,36 +84,43 @@
 <main>
   <p on:click={toggleInfo}></p>
   <section class="form">
+    <p class="form__label">Ratio</p>
     <input
-      class="input--number"
+      placeholder=""
+      class="form__input--number"
       size="1"
       type="number"
       bind:value={ratioA}
       on:input={calculateResult} />
     <input
-      class="input--number"
+      placeholder=""
+      class="form__input--number"
       size="1"
       type="number"
       bind:value={ratioB}
       on:input={calculateResult} />
+    <p class="form__label">Result</p>
     <input
-      class="input--number"
+      placeholder=""
+      class="form__input--number"
       size="1"
       type="number"
       bind:value={resultA}
       on:input={calculateResult} />
     <input
-      class="input--disabled"
+      placeholder=""
+      class="form__input--number--disabled"
       size="1"
       type="number"
       bind:value={resultB}
-      on:input={calculateOther} />
+      disabled />
 
     <label>
       <input
+        class="form__input--checkbox"
         type="checkbox"
         bind:checked={roundResult}
-        on:change={roundAllResults} />
+        on:change={calculateResult} />
       Round to nearest whole number
     </label>
   </section>
