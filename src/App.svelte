@@ -103,7 +103,7 @@
   }
 
   .form__input--checkbox {
-    display: flex;
+    display: inline-flex;
     justify-content: flex-start;
     align-items: center;
     cursor: pointer;
