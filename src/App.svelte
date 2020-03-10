@@ -31,7 +31,7 @@
 
 <style>
   :root {
-    --color-accent: #ffbfea;
+    --color-accent: #ffa6f8;
   }
   :global(body) {
     color: #000;
@@ -135,14 +135,13 @@
     background-color: #000;
   }
   .form__input--checkbox > input:checked + span::before {
-    font-size: 21px;
-    content: "\2713";
+    content: url(/images/check.svg);
     display: block;
     text-align: center;
     color: var(--color-accent);
     position: absolute;
     left: 4px;
-    top: 6px;
+    top: 4px;
   }
 
   :global(.toggle) {
