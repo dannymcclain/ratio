@@ -154,8 +154,8 @@
     background: #000;
     color: #fff;
     /* padding: 63px; */
-    transform: translateY(50vh);
-    transition: transform 300ms cubic-bezier(0.075, 0.82, 0.165, 1),
+    transform: translateY(200px);
+    transition: transform 400ms cubic-bezier(0.075, 0.82, 0.165, 1),
       opacity 200ms linear;
     display: flex;
     flex-direction: row-reverse;
@@ -217,8 +217,8 @@
     margin-top: 18px;
   }
   .info__wrap {
-    height: 100vh;
-    padding: 63px;
+    height: 100%;
+    /* padding: 63px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -278,7 +278,7 @@
     </section>
   </div>
 </main>
-<section class="info {infoOpen ? 'info--open' : ''}">
+<main class="info {infoOpen ? 'info--open' : ''}">
   <button class="toggle toggle--close" on:click={toggleInfo}>Close</button>
   <div class="info__wrap">
     <section class="content">
@@ -290,4 +290,4 @@
       <a href="https://dannymcclain.com">Danny McClain</a>
     </p>
   </div>
-</section>
+</main>
