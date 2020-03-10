@@ -31,7 +31,7 @@
 
 <style>
   :root {
-    --color-accent: #ffa6f8;
+    --color-accent: #ffbfea;
   }
   :global(body) {
     color: #000;
