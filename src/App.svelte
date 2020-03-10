@@ -153,7 +153,6 @@
     height: 100vh;
     background: #000;
     color: #fff;
-    /* padding: 63px; */
     transform: translateY(200px);
     transition: transform 400ms cubic-bezier(0.075, 0.82, 0.165, 1),
       opacity 200ms linear;
@@ -218,7 +217,6 @@
   }
   .info__wrap {
     height: 100%;
-    /* padding: 63px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
