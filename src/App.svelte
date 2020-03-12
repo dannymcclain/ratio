@@ -46,6 +46,7 @@
   main {
     height: 100vh;
     overflow: hidden;
+    /* ^ This is bad */
     position: relative;
     padding: 63px;
     display: flex;
@@ -62,7 +63,7 @@
     letter-spacing: 0.09em;
     text-transform: uppercase;
   }
-  .form__divider {
+  .divider {
     font-weight: 800;
     font-size: 81px;
     line-height: 81px;
@@ -102,7 +103,7 @@
       id="ratioA"
       bind:value={ratioA}
       on:change={focusResultA ? calculateA() : calculateB()} />
-    <p class="form__divider">:</p>
+    <p class="divider">:</p>
     <Input
       id="ratioB"
       bind:value={ratioB}
@@ -110,13 +111,12 @@
 
     <label>Result</label>
     <Input id="resultA" bind:value={resultA} on:change={calculateB} />
-    <p class="form__divider">:</p>
+    <p class="divider">:</p>
     <Input id="resultB" bind:value={resultB} on:change={calculateA} />
     <Checkbox
       id="roundResult"
       bind:checked={roundResult}
       on:change={focusResultA ? calculateA() : calculateB()} />
   </div>
+  <Info {infoOpen} on:close={toggleInfo} />
 </main>
-
-<Info {infoOpen} on:close={toggleInfo} />
