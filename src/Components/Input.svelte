@@ -11,7 +11,7 @@
   export let value = 4;
   export let placeholder = "?";
   export let id;
-
+  export let divider = false;
   $: if (!value) value = 0;
 </script>
 
@@ -47,6 +47,14 @@
     -webkit-appearance: none;
     margin: 0;
   }
+  .divider {
+    font-weight: 800;
+    font-size: 81px;
+    line-height: 81px;
+    letter-spacing: -0.06em;
+    display: inline;
+    margin: 0 36px;
+  }
 </style>
 
 <input
@@ -58,3 +66,6 @@
   {required}
   {placeholder}
   on:input={change} />
+{#if divider}
+  <p class="divider">:</p>
+{/if}

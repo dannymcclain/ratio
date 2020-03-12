@@ -10,9 +10,9 @@
 </script>
 
 <style>
-  .info {
+  section {
     padding: 63px;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     pointer-events: none;
@@ -29,7 +29,7 @@
     justify-content: space-between;
     align-items: flex-start;
   }
-  .info--open {
+  .open {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
@@ -78,13 +78,13 @@
   }
 </style>
 
-<section class="info {infoOpen ? 'info--open' : ''}">
+<section class={infoOpen ? 'open' : ''}>
   <button class="toggle toggle--close" on:click={close}>Close</button>
   <div class="content-wrap">
-    <section class="content">
+    <div class="content">
       <h1 class="overline">Ratio Calculator</h1>
       <p class="title">A simple aspect ratio/proportion calculator.</p>
-    </section>
+    </div>
     <p class="overline">
       Created by
       <a href="https://dannymcclain.com">Danny McClain</a>

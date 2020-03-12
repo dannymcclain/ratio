@@ -44,15 +44,23 @@
   }
 
   main {
-    height: 100vh;
-    overflow: hidden;
-    /* ^ This is bad */
     position: relative;
     padding: 63px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: flex-start;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .wrap {
+    margin-bottom: 27px;
   }
 
   label {
@@ -62,14 +70,6 @@
     line-height: 14px;
     letter-spacing: 0.09em;
     text-transform: uppercase;
-  }
-  .divider {
-    font-weight: 800;
-    font-size: 81px;
-    line-height: 81px;
-    letter-spacing: -0.06em;
-    display: inline;
-    margin: 0 36px;
   }
 
   :global(.toggle) {
@@ -97,26 +97,36 @@
 
 <main>
   <button class="toggle toggle--info" on:click={toggleInfo}>Info</button>
-  <div class="wrap">
-    <label>Ratio</label>
-    <Input
-      id="ratioA"
-      bind:value={ratioA}
-      on:change={focusResultA ? calculateA() : calculateB()} />
-    <p class="divider">:</p>
-    <Input
-      id="ratioB"
-      bind:value={ratioB}
-      on:change={focusResultA ? calculateA() : calculateB()} />
+  <section>
+    <div class="wrap">
+      <label>Ratio</label>
+      <Input
+        id="ratioA"
+        bind:value={ratioA}
+        on:change={focusResultA ? calculateA() : calculateB()}
+        divider="true" />
 
-    <label>Result</label>
-    <Input id="resultA" bind:value={resultA} on:change={calculateB} />
-    <p class="divider">:</p>
-    <Input id="resultB" bind:value={resultB} on:change={calculateA} />
-    <Checkbox
-      id="roundResult"
-      bind:checked={roundResult}
-      on:change={focusResultA ? calculateA() : calculateB()} />
-  </div>
-  <Info {infoOpen} on:close={toggleInfo} />
+      <Input
+        id="ratioB"
+        bind:value={ratioB}
+        on:change={focusResultA ? calculateA() : calculateB()} />
+    </div>
+
+    <div class="wrap">
+      <label>Result</label>
+      <Input
+        id="resultA"
+        bind:value={resultA}
+        on:change={calculateB}
+        divider="true" />
+      <Input id="resultB" bind:value={resultB} on:change={calculateA} />
+    </div>
+    <div class="wrap">
+      <Checkbox
+        id="roundResult"
+        bind:checked={roundResult}
+        on:change={focusResultA ? calculateA() : calculateB()} />
+    </div>
+  </section>
 </main>
+<Info {infoOpen} on:close={toggleInfo} />
