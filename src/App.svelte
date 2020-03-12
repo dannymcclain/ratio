@@ -35,6 +35,7 @@
   :root {
     --color-accent: #ffbfea;
   }
+
   :global(body) {
     color: #000;
     background: var(--color-accent);
@@ -92,6 +93,17 @@
   .toggle--info:hover {
     background: #000;
     color: var(--color-accent);
+  }
+
+  @media (max-width: 700px) {
+    main {
+      position: relative;
+      padding: 27px;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
   }
 </style>
 
