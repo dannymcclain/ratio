@@ -1,5 +1,7 @@
 <script>
   import Info from "./Components/Info.svelte";
+  import Input from "./Components/Input.svelte";
+  import Checkbox from "./Components/Checkbox.svelte";
 
   let ratioA = 4;
   let ratioB = 3;
@@ -51,11 +53,8 @@
     justify-content: space-between;
     align-items: flex-start;
   }
-  .form {
-    margin-bottom: 36px;
-  }
-  .form__label,
-  .form__input--checkbox > span {
+
+  label {
     margin-bottom: 9px;
     font-weight: bold;
     font-size: 12px;
@@ -70,78 +69,6 @@
     letter-spacing: -0.06em;
     display: inline;
     margin: 0 36px;
-  }
-  .form__input--number {
-    font-weight: 800;
-    font-size: 81px;
-    line-height: 81px;
-    letter-spacing: -0.06em;
-    max-width: 297px;
-    height: 99px;
-    padding: 0 0 9px 0;
-    background: transparent;
-    outline: none;
-    border: none;
-    border-radius: 0;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-    transition: border 300ms linear;
-  }
-  .form__input--number:focus {
-    border-bottom: 2px solid rgba(0, 0, 0, 1);
-  }
-
-  input[type="number"]::placeholder {
-    color: #000;
-    font-size: 45px;
-    font-weight: 800;
-    padding-top: 14px;
-    opacity: 0.1;
-  }
-
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  .form__input--checkbox {
-    display: inline-flex;
-    justify-content: flex-start;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
-  }
-  .form__input--checkbox > span {
-    margin-bottom: 6px;
-  }
-  .form__input--checkbox > input {
-    height: 27px;
-    width: 27px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -o-appearance: none;
-    appearance: none;
-    border: 2px solid #000;
-    border-radius: 0;
-    outline: none;
-    transition-duration: 200ms;
-    background-color: transparent;
-    cursor: pointer;
-    margin-right: 9px;
-  }
-
-  .form__input--checkbox > input:checked {
-    border: 2px solid #000;
-    background-color: #000;
-  }
-  .form__input--checkbox > input:checked + span::before {
-    content: url(/images/check.svg);
-    display: block;
-    text-align: center;
-    color: var(--color-accent);
-    position: absolute;
-    left: 4px;
-    top: 4px;
   }
 
   :global(.toggle) {
@@ -170,53 +97,25 @@
 <main>
   <button class="toggle toggle--info" on:click={toggleInfo}>Info</button>
   <div class="wrap">
-    <section class="form">
-      <p class="form__label">Ratio</p>
-      <input
-        placeholder=""
-        class="form__input--number"
-        size="1"
-        type="number"
-        bind:value={ratioA}
-        on:input={focusResultA ? calculateA() : calculateB()} />
-      <p class="form__divider">:</p>
-      <input
-        placeholder=""
-        class="form__input--number"
-        size="1"
-        type="number"
-        bind:value={ratioB}
-        on:input={focusResultA ? calculateA() : calculateB()} />
-    </section>
-    <section class="form">
-      <p class="form__label">Result</p>
-      <input
-        placeholder=""
-        class="form__input--number"
-        size="1"
-        type="number"
-        bind:value={resultA}
-        on:input={calculateB} />
-      <p class="form__divider">:</p>
-      <input
-        placeholder=""
-        class="form__input--number"
-        size="1"
-        type="number"
-        bind:value={resultB}
-        on:input={calculateA} />
-    </section>
+    <label>Ratio</label>
+    <Input
+      id="ratioA"
+      bind:value={ratioA}
+      on:change={focusResultA ? calculateA() : calculateB()} />
+    <p class="form__divider">:</p>
+    <Input
+      id="ratioB"
+      bind:value={ratioB}
+      on:change={focusResultA ? calculateA() : calculateB()} />
 
-    <section class="form">
-      <label class="form__input--checkbox">
-        <input
-          class="form__input--checkbox__input"
-          type="checkbox"
-          bind:checked={roundResult}
-          on:change={focusResultA ? calculateA() : calculateB()} />
-        <span>Round to nearest whole number</span>
-      </label>
-    </section>
+    <label>Result</label>
+    <Input id="resultA" bind:value={resultA} on:change={calculateB} />
+    <p class="form__divider">:</p>
+    <Input id="resultB" bind:value={resultB} on:change={calculateA} />
+    <Checkbox
+      id="roundResult"
+      bind:checked={roundResult}
+      on:change={focusResultA ? calculateA() : calculateB()} />
   </div>
 </main>
 
