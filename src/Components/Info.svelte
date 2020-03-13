@@ -12,7 +12,7 @@
   h1 {
     font-weight: 800;
     font-size: 64px;
-    line-height: 64px;
+    line-height: 1;
     letter-spacing: -0.04em;
     margin-bottom: 12px;
   }
@@ -27,6 +27,22 @@
 
   em {
     font-style: italic;
+  }
+  @media (max-width: 900px) {
+    section {
+      flex: 0;
+      margin-right: 0;
+      width: 90%;
+      margin: 40px 5%;
+    }
+    h1 {
+      font-size: 36px;
+      letter-spacing: -0.02em;
+    }
+    p {
+      font-size: 18px;
+      line-height: 28px;
+    }
   }
 </style>
 
