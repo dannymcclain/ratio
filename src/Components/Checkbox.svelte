@@ -12,6 +12,7 @@
 <style>
   label {
     display: inline-flex;
+    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     cursor: pointer;
@@ -19,29 +20,26 @@
   }
 
   label > span {
-    margin-bottom: 9px;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 14px;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    margin-bottom: 6px;
+    font-size: 14px;
+    line-height: 1;
   }
 
   label > input {
-    height: 27px;
-    width: 27px;
+    height: 18px;
+    width: 18px;
     -webkit-appearance: none;
     -moz-appearance: none;
     -o-appearance: none;
     appearance: none;
-    border: 2px solid #000;
-    border-radius: 0;
     outline: none;
     transition-duration: 200ms;
-    background-color: transparent;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
     cursor: pointer;
-    margin-right: 9px;
+    padding: 0;
+    margin: 0;
+    margin-right: 8px;
   }
 
   label > input:checked {
@@ -50,13 +48,14 @@
   }
 
   label > input:checked + span::before {
-    content: url(/images/check.svg);
+    content: "\2713";
+    font-weight: 600;
     display: block;
     text-align: center;
-    color: var(--color-accent);
+    color: #fff;
     position: absolute;
-    left: 4px;
-    top: 4px;
+    left: 3px;
+    top: 2px;
   }
 </style>
 

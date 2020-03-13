@@ -2,6 +2,7 @@
   import Info from "./Components/Info.svelte";
   import Input from "./Components/Input.svelte";
   import Checkbox from "./Components/Checkbox.svelte";
+  import Footer from "./Components/Footer.svelte";
 
   let ratioA = 4;
   let ratioB = 3;
@@ -32,70 +33,66 @@
 </script>
 
 <style>
-  :root {
-    --color-accent: #ffbfea;
-  }
-
   :global(body) {
     color: #000;
-    background: var(--color-accent);
-    box-sizing: border-box;
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    background: #fafafa;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
   }
-
-  main {
-    position: relative;
-    padding: 63px;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  section {
+  .wrap {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+  }
+  main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
+    max-width: 860px;
   }
 
-  .wrap {
-    margin-bottom: 27px;
+  .calculator {
+    width: 390px;
+    min-width: 390px;
+    flex: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 48px 40px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+  }
+  .form-group {
+    margin-bottom: 36px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
   label {
-    margin-bottom: 9px;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 14px;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
   }
 
-  :global(.toggle) {
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 14px;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    padding: 7px 9px;
-    background: transparent;
-    outline: none;
-    border-radius: 0;
-    cursor: pointer;
-    transition: color 100ms linear, background 100ms linear;
-  }
-  .toggle--info {
-    border: 2px solid #000;
-    color: #000;
-  }
-  .toggle--info:hover {
-    background: #000;
-    color: var(--color-accent);
+  .inputs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
   }
 
-  @media (max-width: 700px) {
+  /* @media (max-width: 700px) {
     main {
       position: relative;
       padding: 27px;
@@ -104,41 +101,46 @@
       justify-content: flex-start;
       align-items: flex-start;
     }
-  }
+  } */
 </style>
 
-<main>
-  <button class="toggle toggle--info" on:click={toggleInfo}>Info</button>
-  <section>
-    <div class="wrap">
-      <label>Ratio</label>
-      <Input
-        id="ratioA"
-        bind:value={ratioA}
-        on:change={focusResultA ? calculateA() : calculateB()}
-        divider="true" />
+<div class="wrap">
+  <span />
+  <main>
+    <Info />
+    <section class="calculator">
+      <div class="form-group">
+        <label>Ratio</label>
+        <div class="inputs">
+          <Input
+            id="ratioA"
+            bind:value={ratioA}
+            on:change={focusResultA ? calculateA() : calculateB()}
+            divider="true" />
 
-      <Input
-        id="ratioB"
-        bind:value={ratioB}
-        on:change={focusResultA ? calculateA() : calculateB()} />
-    </div>
+          <Input
+            id="ratioB"
+            bind:value={ratioB}
+            on:change={focusResultA ? calculateA() : calculateB()} />
+        </div>
+      </div>
+      <div class="form-group">
 
-    <div class="wrap">
-      <label>Result</label>
-      <Input
-        id="resultA"
-        bind:value={resultA}
-        on:change={calculateB}
-        divider="true" />
-      <Input id="resultB" bind:value={resultB} on:change={calculateA} />
-    </div>
-    <div class="wrap">
+        <label>Result</label>
+        <div class="inputs">
+          <Input
+            id="resultA"
+            bind:value={resultA}
+            on:change={calculateB}
+            divider="true" />
+          <Input id="resultB" bind:value={resultB} on:change={calculateA} />
+        </div>
+      </div>
       <Checkbox
         id="roundResult"
         bind:checked={roundResult}
         on:change={focusResultA ? calculateA() : calculateB()} />
-    </div>
-  </section>
-</main>
-<Info {infoOpen} on:close={toggleInfo} />
+    </section>
+  </main>
+  <Footer />
+</div>
