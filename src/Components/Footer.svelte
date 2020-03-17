@@ -51,21 +51,21 @@
 <footer>
   <p>
     A small utility by
-    <a target="_blank" href="https://dannymcclain.com">Danny McClain</a>
+    <a href="https://dannymcclain.com">Danny McClain</a>
   </p>
   <ul>
     <li>
-      <a target="_blank" href="https://twitter.com/dannymcclain">
+      <a href="https://twitter.com/dannymcclain">
         <img alt="twitter icon" src="./images/twitter.svg" />
       </a>
     </li>
     <li>
-      <a target="_blank" href="https://github.com/dannymcclain">
+      <a href="https://github.com/dannymcclain">
         <img alt="github icon" src="./images/github.svg" />
       </a>
     </li>
     <li>
-      <a target="_blank" href="https://dribbble.com/dannymcclain">
+      <a href="https://dribbble.com/dannymcclain">
         <img alt="dribbble icon" src="./images/dribbble.svg" />
       </a>
     </li>

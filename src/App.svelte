@@ -63,7 +63,7 @@
     flex-direction: column;
     padding: 48px 40px;
     background: #ffffff;
-    border: 1.5px solid #e0e0e0;
+    /* border: 1.5px solid #e0e0e0; */
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
     border-radius: 8px;
   }
