@@ -36,17 +36,11 @@
   :global(body) {
     color: #000;
     background: #fafafa;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
   }
   .wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 100vh;
+    width: 90%;
+    max-width: 860px;
+    margin: 0 auto;
   }
   main {
     display: flex;
@@ -54,18 +48,22 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-    max-width: 860px;
+    margin: 120px 0;
+  }
+  @media (max-width: 900px) {
+    main {
+      margin: 0 0 40px 0;
+    }
   }
 
   .calculator {
-    width: 390px;
-    min-width: 390px;
-    flex: 0;
+    max-width: 390px;
+    flex: 1;
     display: flex;
     flex-direction: column;
     padding: 48px 40px;
     background: #ffffff;
-    border: 1px solid #e0e0e0;
+    border: 1.5px solid #e0e0e0;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
     border-radius: 8px;
   }
@@ -116,16 +114,11 @@
       display: flex;
       flex-direction: column;
       padding: 48px 40px;
-      background: #ffffff;
-      border: 1px solid #e0e0e0;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
-      border-radius: 8px;
     }
   }
 </style>
 
 <div class="wrap">
-  <span />
   <main>
     <Info />
     <section class="calculator">

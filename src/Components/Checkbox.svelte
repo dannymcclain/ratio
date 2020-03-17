@@ -20,13 +20,13 @@
   }
 
   label > span {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1;
   }
 
   label > input {
-    height: 18px;
-    width: 18px;
+    height: 20px;
+    width: 20px;
     -webkit-appearance: none;
     -moz-appearance: none;
     -o-appearance: none;
@@ -34,16 +34,16 @@
     outline: none;
     transition-duration: 200ms;
     background: #ffffff;
-    border: 1px solid #e0e0e0;
+    border: 1.5px solid #e0e0e0;
     border-radius: 4px;
     cursor: pointer;
     padding: 0;
-    margin: 0;
+    margin: 1px 0 0 0;
     margin-right: 8px;
   }
 
   label > input:checked {
-    border: 2px solid #000;
+    border-color: #000;
     background-color: #000;
   }
 
@@ -61,5 +61,5 @@
 
 <label>
   <input {id} type="checkbox" bind:checked on:change={change} />
-  <span>Round to nearest whole number</span>
+  <span>Round to a whole number</span>
 </label>

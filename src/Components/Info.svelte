@@ -4,16 +4,14 @@
 
 <style>
   section {
-    flex: 0;
+    flex: 1;
     margin-right: 80px;
-    width: 390px;
-    min-width: 390px;
   }
   h1 {
     font-weight: 800;
     font-size: 64px;
     line-height: 1;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.02em;
     margin-bottom: 12px;
   }
   p {
@@ -33,7 +31,9 @@
       flex: 0;
       margin-right: 0;
       width: 90%;
-      margin: 40px 5%;
+      max-width: 400px;
+      text-align: center;
+      margin: 40px auto;
     }
     h1 {
       font-size: 36px;

@@ -19,19 +19,19 @@
   input {
     flex: 1;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1;
     padding: 12px 16px;
     background: white;
     outline: none;
-    border: 1px solid #e0e0e0;
+    border: 1.5px solid #e0e0e0;
     border-radius: 4px;
     transition: border 300ms linear;
     margin: 0;
     min-width: 1px;
   }
   input:focus {
-    border: 1px solid #000;
+    border-color: #000;
   }
 
   input[type="number"]::-webkit-inner-spin-button,
