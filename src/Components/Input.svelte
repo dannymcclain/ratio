@@ -17,29 +17,21 @@
 
 <style>
   input {
-    font-weight: 800;
-    font-size: 81px;
-    line-height: 81px;
-    letter-spacing: -0.06em;
-    max-width: 297px;
-    height: 99px;
-    padding: 0 0 9px 0;
-    background: transparent;
+    flex: 1;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1;
+    padding: 12px 16px;
+    background: white;
     outline: none;
-    border: none;
-    border-radius: 0;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    border: 1.5px solid #e0e0e0;
+    border-radius: 4px;
     transition: border 300ms linear;
+    margin: 0;
+    min-width: 1px;
   }
   input:focus {
-    border-bottom: 2px solid rgba(0, 0, 0, 1);
-  }
-
-  input::placeholder {
-    color: #000;
-    font-weight: 800;
-    padding-top: 10px;
-    opacity: 0.2;
+    border-color: #000;
   }
 
   input[type="number"]::-webkit-inner-spin-button,
@@ -48,12 +40,13 @@
     margin: 0;
   }
   .divider {
-    font-weight: 800;
-    font-size: 81px;
-    line-height: 81px;
-    letter-spacing: -0.06em;
+    flex: 0;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1;
+    color: #aaa;
     display: inline;
-    margin: 0 36px;
+    margin: 0 12px;
   }
 </style>
 
