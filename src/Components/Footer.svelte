@@ -51,7 +51,7 @@
 <footer>
   <p>
     A small utility by
-    <a href="https://dannymcclain.com">Danny McClain</a>
+    <a href="https://dannymccla.in">Danny McClain</a>
   </p>
   <ul>
     <li>

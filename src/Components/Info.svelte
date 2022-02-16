@@ -19,13 +19,6 @@
     font-size: 22px;
     line-height: 32px;
   }
-  strong {
-    font-weight: bold;
-  }
-
-  em {
-    font-style: italic;
-  }
   @media (max-width: 900px) {
     section {
       flex: 0;
@@ -49,9 +42,6 @@
 <section>
   <h1>Ratio Calculator</h1>
   <p>
-    A simple aspect ratio/proportion calculator created for
-    <strong>fun</strong>
-    and for
-    <em>use.</em>
+    A simple aspect ratio/proportion calculator created for fun and utility.
   </p>
 </section>
